@@ -374,4 +374,8 @@ If you like RampX, give it a ⭐ on [GitHub](https://github.com/rampage/rampx-cl
 
 *Ramp up your development workflow*
 
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> master
