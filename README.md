@@ -344,7 +344,7 @@ None at the moment! Report issues on GitHub.
 
 ## 📄 License
 
-MIT © Rampage
+MIT © Rampage (Steve Divan EKANGOH)
 
 ## 🙏 Acknowledgments
 
