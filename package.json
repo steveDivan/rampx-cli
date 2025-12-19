@@ -1,26 +1,36 @@
 {
-  "name": "rampx",
-  "bin": {
-    "rpx": "./bin/rpx.js"
-  },
-  "version": "1.0.0",
+  "name": "rampx-cli",
+  "version": "0.1.0",
+  "description": "RampX – Ramp up your development workflow",
+  "author": "Rampage",
   "type": "module",
-  "main": "index.js",
+  "bin": {
+    "rpx": "./bin/cli.js"
+  },
   "scripts": {
+    "start": "node bin/cli.js",
+    "dev": "node bin/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Steve Divan EKANGOH",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "cli",
+    "scaffold",
+    "generator",
+    "project-setup",
+    "workflow"
+  ],
   "dependencies": {
-    "boxen": "^8.0.1",
-    "chalk": "^5.6.2",
-    "commander": "^14.0.2",
-    "figlet": "^1.9.4",
-    "fs-extra": "^11.3.3",
-    "gradient-string": "^3.0.0",
-    "inquirer": "^13.1.0",
-    "ora": "^9.0.0"
-  }
+    "boxen": "^7.1.1",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "figlet": "^1.7.0",
+    "fs-extra": "^11.1.1",
+    "gradient-string": "^2.0.2",
+    "inquirer": "^9.2.12",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "license": "MIT"
 }

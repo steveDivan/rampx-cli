@@ -11,18 +11,20 @@ const program = new Command();
 // Beautiful banner
 const showBanner = () => {
   console.log(
-    gradient.pastel.multiline(
+    gradient(['#00f', '#0f0']).multiline( // blue -> green gradient
       figlet.textSync('RampX', {
         font: 'ANSI Shadow',
         horizontalLayout: 'default',
       })
     )
   );
+  
   console.log(
     chalk.cyan.bold('                      by ') +
-    chalk.magenta.bold('Rampage') +
+    chalk.magenta.bold('Steve Divan EKANGOH aka Rampage') +
     chalk.cyan(' ⚡\n')
   );
+  
   console.log(
     chalk.gray('    Ramp up your development workflow\n')
   );
