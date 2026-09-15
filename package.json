@@ -10,7 +10,10 @@
   "scripts": {
     "start": "node bin/cli.js",
     "dev": "node bin/cli.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scripts": {
+    "build": "esbuild src/cli.ts --bundle --platform=node --outfile=dist/cli.js"
+}
   },
   "keywords": [
     "cli",
