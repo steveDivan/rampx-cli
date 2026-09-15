@@ -1,0 +1,27 @@
+name: CLI Integration Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  integration-test:
+    name: Run CLI Integration Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Execution Environment
+        run: |
+          # Make binary executable and add to PATH
+          chmod +x ./bin/rpx || true
+          echo "$(pwd)/bin" >> $GITHUB_PATH
+
+      - name: Run Test Suite
+        run: |
+          chmod +x ./tests/cli_integration.sh
+          ./tests/cli_integration.sh
