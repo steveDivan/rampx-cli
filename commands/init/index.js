@@ -70,6 +70,10 @@ const checkDirectoryExists = async (projectPath, projectName) => {
 /**
  * Select project pattern interactively
  */
+/**
+ * Select project pattern interactively
+ * Shows the available patterns first
+ */
 const selectPattern = async (type, providedPattern) => {
   const typePatterns = patterns[type];
   
@@ -92,23 +96,21 @@ const selectPattern = async (type, providedPattern) => {
     return providedPattern;
   }
 
-  // Interactive pattern selection
-  console.log(chalk.blue.bold('📐 Choose Project Structure\n'));
-  
-  const choices = Object.entries(typePatterns).map(([key, value]) => ({
-    name: `${chalk.cyan.bold(value.label)} ${chalk.gray('─')} ${value.description}`,
-    value: key,
-    short: value.label,
-  }));
+  // Show list of available patterns before prompt
+  console.log(chalk.blue.bold(`\n📌 Available patterns for ${type}:\n`));
+  Object.entries(typePatterns).forEach(([key, value]) => {
+    let line = `${chalk.cyan.bold(key)} ─ ${value.description}`;
+    if (value.recommended) line += chalk.yellow.bold(' ⭐ RECOMMENDED');
+    console.log(line);
+  });
+  console.log(); // empty line
 
-  // Add recommended badge to the recommended pattern
-  const recommendedIndex = choices.findIndex(c => 
-    typePatterns[c.value].recommended
-  );
-  
-  if (recommendedIndex !== -1) {
-    choices[recommendedIndex].name += chalk.yellow.bold(' ⭐ RECOMMENDED');
-  }
+  // Interactive selection
+  const choices = Object.entries(typePatterns).map(([key, value]) => ({
+    name: `${chalk.cyan.bold(key)} ${chalk.gray('─')} ${value.description}` + (value.recommended ? chalk.yellow.bold(' ⭐ RECOMMENDED') : ''),
+    value: key,
+    short: key,
+  }));
 
   const { selectedPattern } = await inquirer.prompt([
     {
@@ -123,6 +125,7 @@ const selectPattern = async (type, providedPattern) => {
   console.log();
   return selectedPattern;
 };
+
 
 /**
  * Create project structure
